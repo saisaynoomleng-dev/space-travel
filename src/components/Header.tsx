@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { RxHamburgerMenu } from 'react-icons/rx';
 
@@ -18,12 +18,36 @@ const LINKS = [
 const Header = () => {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const pathname = usePathname();
-
-  console.log(navOpen);
+  const navRef = useRef<HTMLDivElement>(null); // Ref to nav
+  const buttonRef = useRef<HTMLButtonElement>(null); // Ref to toggle button
 
   const toggleNav = () => {
     setNavOpen((prevOpen) => !prevOpen);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node;
+      if (
+        navRef.current &&
+        !navRef.current.contains(target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(target)
+      ) {
+        setNavOpen(false);
+      }
+    };
+
+    if (navOpen) {
+      document.addEventListener('click', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [navOpen]);
 
   useEffect(() => {
     document.body.style.overflow = navOpen ? 'hidden' : '';
