@@ -21,7 +21,7 @@ const Destination = ({
   if (!allDestinations) notFound();
 
   return (
-    <div className="grid items-center justify-center gap-y-5 my-5 md:grid-cols-2 md:max-w-[90%] md:justify-between">
+    <div className="grid items-center justify-center gap-y-5 my-5 md:grid-cols-2 md:max-w-[90%] md:justify-between md:mx-auto">
       {activeDestination.mainImage?.asset?.url && (
         <div>
           <Image
@@ -33,7 +33,7 @@ const Destination = ({
             width={300}
             height={300}
             alt={activeDestination.mainImage.alt || ''}
-            className="mx-auto "
+            className="mx-auto"
           />
         </div>
       )}
@@ -61,7 +61,7 @@ const Destination = ({
 
           <hr className="max-w-[80%] mx-auto my-5" />
 
-          <div className="flex justify-around font-condensed">
+          <div className="flex justify-around font-condensed md:justify-between">
             <p className="uppercase">
               avg. distance{' '}
               <span className="text-fs-500 block font-normal font-barlow">
