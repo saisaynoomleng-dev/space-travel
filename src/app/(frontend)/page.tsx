@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <Bounded className="bg-[url(/home-sm.jpg)] bg-cover bg-no-repeat md:bg-[url(/home-md.jpg)] lg:bg-[url(/home-lg.jpg)] bg-center grid text-center px-5 md:px-10">
+    <Bounded className="bg-[url(/home-sm.jpg)] bg-cover bg-no-repeat md:bg-[url(/home-md.jpg)] lg:bg-[url(/home-lg.jpg)] bg-center grid text-center ">
       <div className="md:max-w-[70%] md:mx-auto">
         <h1 className="uppercase leading-[1.5] font-condensed tracking-widest">
           so, you want to travel to{' '}
