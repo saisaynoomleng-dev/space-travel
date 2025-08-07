@@ -7,7 +7,7 @@ const Bounded = ({
   as: Comp = 'section',
 }: BoundedProps) => {
   return (
-    <Comp className={clsx('min-h-dvh relative pt-36', className)}>
+    <Comp className={clsx('min-h-dvh relative pt-36 px-5 md:px-10', className)}>
       {children}
     </Comp>
   );

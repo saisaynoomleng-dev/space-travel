@@ -19,13 +19,19 @@ const Header = () => {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const pathname = usePathname();
 
+  console.log(navOpen);
+
   const toggleNav = () => {
     setNavOpen((prevOpen) => !prevOpen);
   };
 
   useEffect(() => {
     document.body.style.overflow = navOpen ? 'hidden' : '';
-  }, []);
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [navOpen]);
 
   return (
     <header className="flex justify-between items-center px-5 py-8 font-condensed tracking-widest font-medium h-36 fixed z-50 inset-0">
