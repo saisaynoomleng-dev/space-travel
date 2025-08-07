@@ -60,7 +60,7 @@ const Header = () => {
         id="main-nav"
         aria-label="Main Navigation"
         className={clsx(
-          'flex max-md:flex-col max-md:fixed max-md:inset-0 max-md:left-[30%] max-md:px-8 max-md:py-26 md:px-10 md:py-5 bg-brand-white/5 backdrop-blur-sm max-md:z-50 max-md:gap-y-5 gap-x-8 transition-transform duration-200 ease-in-out',
+          'flex max-md:flex-col max-md:fixed max-md:inset-0 max-md:left-[30%] max-md:px-8 max-md:py-26 md:px-10 md:py-5 bg-brand-white/5 backdrop-blur-lg max-md:z-50 max-md:gap-y-5 gap-x-8 transition-transform duration-200 ease-in-out',
           navOpen ? 'max-md:translate-x-0' : 'max-md:translate-x-full',
         )}
         aria-expanded={navOpen}
